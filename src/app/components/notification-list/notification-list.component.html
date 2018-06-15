@@ -1,0 +1,5 @@
+<notification *ngFor="let notification of notifications; let i = index"
+  [notification]="notification"  
+  [@flyInOut]="'in'"
+  (@flyInOut.done)="animationDone(i)">
+</notification>

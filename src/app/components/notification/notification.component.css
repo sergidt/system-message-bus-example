@@ -1,0 +1,26 @@
+.notification-info {
+  width: 120px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: #B3C3F3;
+  margin-top: 10px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.75);
+}
+
+.notification-alert {
+  width: 120px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: #ff7f86;
+  margin-top: 10px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.75);
+}
+
+.title {
+  font-size: 13px;
+  font-weight: bold; 
+}
+
+.description {
+  font-size: 11px;
+}

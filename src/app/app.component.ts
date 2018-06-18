@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MessageBusService, MessageAction } from './services/message-bus.service';
 import { NotificationType, Notification } from './components/notification-list/notification-list.component';
+import { getRandomColor } from './services/utils';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,13 @@ import { NotificationType, Notification } from './components/notification-list/n
 })
 export class AppComponent {
 
+  contexts = [];
+
   constructor(private messageBus: MessageBusService) {
+    
+    for (let i = 0; i < 5; i++) 
+      this.contexts.push(getRandomColor());
+  
   }
 
   createInfoNotification() {

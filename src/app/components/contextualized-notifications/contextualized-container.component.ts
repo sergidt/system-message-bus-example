@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ElementRef, NgZone } from '@angular/core';
 import { MessageBusService, MessageAction } from '../../services/message-bus.service';
 import { interval } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { highlightElement } from '../../services/utils';
+import { highlightElement, getRandomInt } from '../../services/utils';
 
 @Component({
   selector: 'contextualized-container',
@@ -13,8 +13,15 @@ import { highlightElement } from '../../services/utils';
 export class ContextualizedContainerComponent {
 @Input() color: string;
 
+children: string[];
+
+@Input() set childrenCount(value: number) {
+  this.children = Array(value).fill('');
+}
+
   constructor(private elementRef: ElementRef, private zone: NgZone, private messageBus: MessageBusService) { 
-      interval(3000)
+    const intervalDelay = getRandomInt(1500, 4000);
+      interval(intervalDelay)
       .pipe(tap(() => highlightElement(this.elementRef, this.zone, this.color)))
       .subscribe(() => this.messageBus.push({type: MessageAction.NotifyContext, data: {color: this.color}}));
   }

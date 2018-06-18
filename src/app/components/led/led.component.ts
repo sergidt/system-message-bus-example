@@ -16,6 +16,7 @@ import { delay } from 'rxjs/operators';
     display: block;
     border: solid 1px;
     background-color: white;
+    margin-right: 5px;
 }
   `]
 })
@@ -29,5 +30,4 @@ export class LedComponent implements OnInit {
     .pipe(delay(500))
     .subscribe(msg => highlightElement(this.elementRef, this.zone, msg.data.color));
   }
-
 }

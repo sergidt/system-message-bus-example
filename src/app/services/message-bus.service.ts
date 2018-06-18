@@ -3,7 +3,8 @@ import { Observable, of, Subject } from 'rxjs';
 import { filter, first } from 'rxjs/operators';
 
 export enum MessageAction {
-  ShowNotification = 'ShowNotification'
+  ShowNotification = 'ShowNotification',
+  NotifyContext = 'NotifyContext'
 }
 
 export interface Message {

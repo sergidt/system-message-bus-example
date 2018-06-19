@@ -3,6 +3,7 @@ import { MessageBusService, MessageAction } from '../../services/message-bus.ser
 import { interval } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { highlightElement, getRandomInt } from '../../services/utils';
+import { Notification, NotificationType } from '../notification-list/notification-list.component';
 
 @Component({
   selector: 'contextualized-container',
@@ -25,4 +26,9 @@ children: string[];
       .pipe(tap(() => highlightElement(this.elementRef, this.zone, this.color)))
       .subscribe(() => this.messageBus.push({type: MessageAction.NotifyContext, data: {color: this.color}}));
   }
+
+  createInfoNotification() {
+    this.messageBus.push({ type: MessageAction.ShowNotification, data: <Notification>{ title: 'Info', description: 'Message from a container', type: NotificationType.Info } });
+  }
+
 }

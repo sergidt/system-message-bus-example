@@ -14,16 +14,16 @@ export class AppComponent {
 
   constructor(private messageBus: MessageBusService) {
     
-    for (let i = 0; i < 5; i++) 
+    for (let i = 0; i < 3; i++) 
       this.contexts.push(getRandomColor());
   
   }
 
   createInfoNotification() {
-    this.messageBus.push({ type: MessageAction.ShowNotification, data: <Notification>{ title: 'Info', description: 'this is an info notification', type: NotificationType.Info } });
+    this.messageBus.push({ type: MessageAction.ShowNotification, data: <Notification>{ title: 'Info', description: 'this is an info notification', type: NotificationType.Info, color: '#B3C3F3' } });
   }
 
   createAlertNotification() {
-    this.messageBus.push({ type: MessageAction.ShowNotification, data: <Notification>{ title: 'Alert', description: 'this is an alert notification', type: NotificationType.Alert } });
+    this.messageBus.push({ type: MessageAction.ShowNotification, data: <Notification>{ title: 'Alert', description: 'this is an alert notification', type: NotificationType.Alert, color: '#ff7f86' } });
   }
 }

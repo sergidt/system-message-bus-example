@@ -20,6 +20,7 @@ export interface Notification {
   title: string;
   description: string;
   type: NotificationType;
+  color?: string;
 }
 
 @Component({

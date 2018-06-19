@@ -14,3 +14,9 @@ notification-list {
   top: 0;
   bottom: 0;  
 }
+
+.containers {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
